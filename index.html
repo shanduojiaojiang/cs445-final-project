@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style type="text/css">
+	.img {
+    	width: 100%;
+	}
+</style>
+
+<article class="container p-4">
+<h1>CS 445 Final Project: Image Segmentation</h1>
+<hr/><br/>
+<h2>Part 1: Hybrid Image</h2>
+<br/>
+<h4>My favorite result: </h4>
+<img src="./images/john-nun.jpg" alt="john-dog" height="450">
+
+<p>
+	<br/> This is my favorite hybrid image result out of all the experiments.
+			When you look close at the computer, you will see John Wick (Keanu Reeves)
+			handsome as always, but when you step a few meters away, you will see that
+			it's acually a picture of The Nun. In this example, I chose 7 for the cut-off
+			frequency of low-pass filter, and 8 for the cut-off frequency of high-pass filter.
+	<br/>
+	<br/> Throughout the experiment of using different cut-off frequencies as well as
+			different pictures, I realized that whether the hybridization of image will
+			success depends highly on whether the two input images are already roughly
+			similar to each other - for example, if the two input images are both portraits
+			and whether people in the portraits have the same pose.
+
+</p>
+
+<h4>Input images and log magnitude FFT</h4>
+<img src="./images/input-john-nun-fft.jpg" alt="input-john-nun" class="img-fluid", height="300">
+
+<h4>Filtered images and log magnitude FFT</h4>
+<img src="./images/filtered-john-nun-fft.jpg" class="img-fluid">
+
+<h4>Hybrid images and log magnitude FFT</h4>
+<div class="text-center">
+<img src="./images/hybrid-fft.jpg" height="400"></div>
+
+
+<h4>Other results</h4><br/>
+
+<img src="./images/mk2.jpg" height="350">
+
+<br/>
+<br/>
+
+
+<p>This is a successful result of the hybrid image - you will see a pineapple when you're
+	close to the screen, and an MK2 grenade when you are far from the scree. In this example, I
+	chose 9 for the cut-off frequency of low-pass filter, and I chose 12 for the cut-off
+	frequency of high-pass filter. The reason behind the success of this example is that the shape of
+	grenade and the shape of pineapple are roughly the same. In addition, during this experiment,
+	I realized that it is easier to align two objects by placing eye election points on the border than
+	placing them inside.
+</p>
+
+<br/>
+
+<img src="./images/punisher.jpg" height="350">
+
+<br/>
+<br/>
+
+<p>This is another example of the successful hybrid images - you will see The Punisher
+	(Jon Bernthal) when you are close to the screen, and his iconic skull when you take a
+	few steps back. In this example, I chose 8 for the cut-off frequency of low-pass filter,
+	and I chose 10 for the cut-off frequency of high-pass filter.
+</p>
+
+<br/>
+
+<img src="./images/fails.jpg" height="350">
+
+<br/>
+<br/>
+
+<p>This is an example of the failure of hybrid images. I was trying to achieve change of
+	expressions by viewing the picture in different distances. However, the low-passed
+	Einstein was facing the camera in a different angle than the high-passed Einstein,
+	therefore it is impossible for the two images to align perfectly.
+</p>
+
+<br/>
+
+<h2>Part 2: Image Enhancement</h2><br/>
+<h4>Contrast Enhancement</h4><br/>
+<img src="./images/contrast.jpg" height="450">
+<p>This is a picture of Golden Bridge that I took a year ago. As you can see on the left,
+	the original image looks misty and has a poor contrast, while the image on the
+	right after contrast enhancement looks clearer and has a strong third dimension. For
+	the implementation of contrast enhancement, I chose histogram equalization as it could
+	redistribute pixel values on a linear level.
+
+
+</p>
+
+<br/>
+<h4>Color Enhancement</h4><br/>
+<img src="./images/disney-color-enhance.jpg" height="580">
+<p>This is a picture that I took in Disney World this summer.
+	For color enhancement, I first converted the color space to HSV and separated saturation
+	from hue and value. Then I normalized saturation by dividing each pixel's saturation by 255,
+	and used a gamma correction with &#947 = 0.6. As you can see on the right, image after color
+	enhancement looks more vivid and has a brighter color than the original image.
+</p>
+<br/>
+
+<h4>Color Shift</h4><br/>
+<img src="./images/color-shift.jpg" height="580">
+<p>This is a picture that I took on the plane when I was flying back to China last summer.
+	For color shifting, I first converted the color space to LAB and separated each channel.
+	In order to achieve a more red image, I added 10 to a(the difference between green and red),
+	and in order to achieve a less yellow image, I subtracted 10 from b(the difference between
+	blue and yellow). As you can see in the middle is the <q>reddish</q> image, and on the right is
+	the <q>less-yellow</q> image.
+</p>
+<br/>
+
+
+</article>
+</html>
