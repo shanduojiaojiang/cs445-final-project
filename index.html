@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <style type="text/css">
-	.img {
-    	width: 100%;
-	}
+  .img {
+      width: 100%;
+  }
 </style>
+<title>CS 445 Final Project: Image Segmentation</title>
 
 <article class="container p-4">
 <h1>CS 445 Final Project: Image Segmentation</h1>
-<h4>A "symbolic link": <a href="http://www.google.com">Leo Chen</a><h4>
-<br/>
+<h4>Link to partner's website (identical):
+  <a href="http://yanlinc2.web.illinois.edu/cs445/project/">Shanduojiao Jiang</a><h4>
+<hr/><br/>
 <h3>Introduction</h3>
 <p>
 For our final project, my partner and I decided to implement Image Segmentation - the process
@@ -24,16 +26,16 @@ and the "Andy Warhol" effect we added.
 
 <div class="container">
 <div class="row">
-	<div class="col-md">
-  	<h6>Princess Diana Original</h6>
+  <div class="col-md">
+    <h6>Princess Diana Original</h6>
     <img src="./images/diana1.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" class='img-fluid' alt="Diana">
   </div>
   <div class="col-md">
-  	<h6>Princess Diana K-Means</h6>
+    <h6>Princess Diana K-Means</h6>
     <img src="./images/diana_kmean.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" class='img-fluid' alt="Diana-KMeans">
   </div>
   <div class="col-md">
-  	<h6>Princess Diana Mean Shift</h6>
+    <h6>Princess Diana Mean Shift</h6>
     <img src="./images/diana_ms.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" alt="Diana-MeanShift" class='img-fluid'>
   </div>
 </div>
@@ -42,16 +44,16 @@ and the "Andy Warhol" effect we added.
 
 <div class="container">
 <div class="row">
-	<div class="col-md">
-  	<h6>Skyline Original</h6>
+  <div class="col-md">
+    <h6>Skyline Original</h6>
     <img src="./images/in7.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" class='img-fluid' alt="Skyline">
   </div>
   <div class="col-md">
-  	<h6>Skyline K-Means</h6>
+    <h6>Skyline K-Means</h6>
     <img src="./images/skyline_kmean.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" class='img-fluid' alt="Skyline-KMeans">
   </div>
   <div class="col-md">
-  	<h6>Skyline Mean Shift</h6>
+    <h6>Skyline Mean Shift</h6>
     <img src="./images/skyline_ms.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" alt="Skyline-MeanShift 450" class='img-fluid'>
   </div>
 </div>
@@ -60,16 +62,16 @@ and the "Andy Warhol" effect we added.
 
 <div class="container">
 <div class="row">
-	<div class="col-md">
-  	<h6>G-Wagon Original</h6>
+  <div class="col-md">
+    <h6>G-Wagon Original</h6>
     <img src="./images/in4_1024.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" class='img-fluid' alt="GWag">
   </div>
   <div class="col-md">
-  	<h6>G-Wagon K-Means</h6>
+    <h6>G-Wagon K-Means</h6>
     <img src="./images/gwag_kmean.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" class='img-fluid' alt="GWag-KMeans">
   </div>
   <div class="col-md">
-  	<h6>G-Wagon Mean Shift</h6>
+    <h6>G-Wagon Mean Shift</h6>
     <img src="./images/gwag_ms.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" alt="GWag-MeanShift" class='img-fluid'>
   </div>
 </div>
@@ -81,38 +83,38 @@ and the "Andy Warhol" effect we added.
 <h3>K-Means in Detail</h3>
 <h5>Algorithm Overview</h5>
 <p>K-means is probably the most intuitive and straight-forward approach for Image Segmentation -
-	In order to segment the image, we simply define a K and divide the image into K regions based
-	on color similarity. A detailed implementation of K-Means is shown below:
-	<br/>
-	<br/>
-	<i>Initialization</i>:
-	<br/>
-		&nbsp &nbsp &nbsp &nbsp- Choose K cluster center
-	<br/>
-	<i>Repeat</i>:
-	<br/>
-		&nbsp &nbsp &nbsp &nbsp- Assignment Step: For every point, find its closest center.
-	<br/>
-		&nbsp &nbsp &nbsp &nbsp- Update Step: Update every center as the mean of its points
-	<br/>
+  In order to segment the image, we simply define a K and divide the image into K regions based
+  on color similarity. A detailed implementation of K-Means is shown below:
+  <br/>
+  <br/>
+  <i>Initialization</i>:
+  <br/>
+    &nbsp &nbsp &nbsp &nbsp- Choose K cluster center
+  <br/>
+  <i>Repeat</i>:
+  <br/>
+    &nbsp &nbsp &nbsp &nbsp- Assignment Step: For every point, find its closest center.
+  <br/>
+    &nbsp &nbsp &nbsp &nbsp- Update Step: Update every center as the mean of its points
+  <br/>
   <i>Until</i>:
-	<br/>
-		&nbsp &nbsp &nbsp &nbsp- The maximum number of iterations is reached, or
-	<br/>
-		&nbsp &nbsp &nbsp &nbsp- No changes during the assignment step, or
-	<br/>
-		&nbsp &nbsp &nbsp &nbsp- The average distortion per point drops very little.
-	<br/>
-	<br/>
+  <br/>
+    &nbsp &nbsp &nbsp &nbsp- The maximum number of iterations is reached, or
+  <br/>
+    &nbsp &nbsp &nbsp &nbsp- No changes during the assignment step, or
+  <br/>
+    &nbsp &nbsp &nbsp &nbsp- The average distortion per point drops very little.
+  <br/>
+  <br/>
 
-	<i>Note: K-Means objective minimizes the total distortion (sum of squared distances of points
-	from their cluster centers) as shown in the below equation.</i>
+  <i>Note: K-Means objective minimizes the total distortion (sum of squared distances of points
+  from their cluster centers) as shown in the below equation.</i>
 </p>
 <div class="col-md">
-	<img src="./images/kmean-objectF.png" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" alt="K-Means Objective Function" width = "500">
+  <img src="./images/kmean-objectF.png" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" alt="K-Means Objective Function" width = "500">
   <br/>
-	&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-	<h7>Equation Credit: <a href="https://www.saedsayad.com/clustering_kmeans.htm">saedsayad</a></h7>
+  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+  <h7>Equation Credit: <a href="https://www.saedsayad.com/clustering_kmeans.htm">saedsayad</a></h7>
 </div>
 <br/>
 <br/>
@@ -120,13 +122,13 @@ and the "Andy Warhol" effect we added.
 
 <h5>Finding K</h5>
 <p>
-	One of the biggest drawbacks of using K-Means is that we need to manually find the most suitable K.
-	As suggested in <a href="https://towardsdatascience.com/introduction-to-image-segmentation-with-k-means-clustering-83fd0a9e2fc3">Towards Data Science</a>
-	as well as in <a href="http://vision.stanford.edu/teaching/cs131_fall1617/lectures/lecture13_kmeans_mean_shift_cs131_2016">Stanford Vision Lab</a>,
-	we tried different values of K and plotted the
-	Sum-of-Square Differences versus K to find the "elbow point" where adding one more cluster does not
-	reduce much of the SSD. For illustration purpose, we plotted the SSD Vs. K for the Princess Diana image,
-	and as indicated by the plot, the "elbow point" here should be 5.
+  One of the biggest drawbacks of using K-Means is that we need to manually find the most suitable K.
+  As suggested in <a href="https://towardsdatascience.com/introduction-to-image-segmentation-with-k-means-clustering-83fd0a9e2fc3">Towards Data Science</a>
+  as well as in <a href="http://vision.stanford.edu/teaching/cs131_fall1617/lectures/lecture13_kmeans_mean_shift_cs131_2016">Stanford Vision Lab</a>,
+  we tried different values of K and plotted the
+  Sum-of-Square Differences versus K to find the "elbow point" where adding one more cluster does not
+  reduce much of the SSD. For illustration purpose, we plotted the SSD Vs. K for the Princess Diana image,
+  and as indicated by the plot, the "elbow point" here should be 5.
 </p>
 <img src="./images/SSD_vs_K.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" alt="SSD Versus K plot" width = "500">
 <br/>
@@ -137,19 +139,19 @@ and the "Andy Warhol" effect we added.
 <div class="container">
 <div class="row">
   <div class="col-md">
-  	<h6>Original Image</h6>
+    <h6>Original Image</h6>
     <img src="./images/diana1.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" class='img-fluid' alt="Diana">
   </div>
-	<div class="col-md">
-  	<h6>Original Image Grouping</h6>
+  <div class="col-md">
+    <h6>Original Image Grouping</h6>
     <img src="./images/before-grouping.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" class='img-fluid' alt="Diana-grouping">
   </div>
-	<div class="col-md">
-  	<h6>Segmented Image</h6>
+  <div class="col-md">
+    <h6>Segmented Image</h6>
     <img src="./images/diana_kmean.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" class='img-fluid' alt="Diana-KMeans">
   </div>
   <div class="col-md">
-  	<h6>Segmented Image Grouping</h6>
+    <h6>Segmented Image Grouping</h6>
     <img src="./images/after-kmean-grouping.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" alt="Diana-KMeans-grouping" class='img-fluid'>
   </div>
 </div>
@@ -158,30 +160,30 @@ and the "Andy Warhol" effect we added.
 <br/>
 
 <div class="col-md">
-	<h6>K-Means with K ranging from 1 to 8</h6>
-	<img src="./images/diana_collaged.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" alt="Diana-KMeans-Collaged" class='img-fluid'>
+  <h6>K-Means with K ranging from 1 to 8</h6>
+  <img src="./images/diana_collaged.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" alt="Diana-KMeans-Collaged" class='img-fluid'>
 </div>
 <br/>
 <br/>
 <p>
-	During experimenting with K-Means, we utilized the clustering of K-Means and reassigned pixel values
-	to these pixel groups to achieve a pop art effect - specifically, we implemented an
-	<a href="https://www.artsy.net/collection/andy-warhol-celebrity-portraits">Andy Warhol</a> filter
-	as shown below.
+  During experimenting with K-Means, we utilized the clustering of K-Means and reassigned pixel values
+  to these pixel groups to achieve a pop art effect - specifically, we implemented an
+  <a href="https://www.artsy.net/collection/andy-warhol-celebrity-portraits">Andy Warhol</a> filter
+  as shown below.
 </p>
 <br/>
 <div class="container">
 <div class="row">
-	<div class="col-md">
-  	<h6>K = 3</h6>
+  <div class="col-md">
+    <h6>K = 3</h6>
     <img src="./images/dianak3_andy.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" class='img-fluid' alt="Diana_k3">
   </div>
   <div class="col-md">
-  	<h6>K = 5</h6>
+    <h6>K = 5</h6>
     <img src="./images/dianak5_andy.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" class='img-fluid' alt="Diana_k5">
   </div>
   <div class="col-md">
-  	<h6>K = 6</h6>
+    <h6>K = 6</h6>
     <img src="./images/diana-andy.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" alt="Diana_k6" class='img-fluid'>
   </div>
 </div>
@@ -192,24 +194,214 @@ and the "Andy Warhol" effect we added.
 
 <h5>Conclusions on K-Means</h5>
 <p>In conclusion, K-Means is a relatively simple and fast algorithm for small K, and it is easy to implement.
-	Yet it also has some non negligible cons: 1. Manually choosing K is a relatively heavy overhead. 2. K-Means
-	is very sensitive to outliers. 3. All clusters have the same values (distance feature is non-adaptive). Therefore
-	in industry today, K-Means is rarely used in pixel segmentation.
+  Yet it also has some non negligible cons: 1. Manually choosing K is a relatively heavy overhead. 2. K-Means
+  is very sensitive to outliers. 3. All clusters have the same values (distance feature is non-adaptive). Therefore
+  in industry today, K-Means is rarely used in pixel segmentation.
+  But the Andy Warhol effect surely is fun.
 </p>
 <br/>
 <br/>
 
-
+<hr/><br/>
 
 
 <h3>Mean Shift in Detail</h3>
+<h5>Algorithm Overview</h5>
+<p>
+  Mean-shift segmentation is an advanced and versatile iterative algorithm for
+  clustering-based segmentation that can be used for locating the maxima of a
+  density function (aka a mode-seeking algorithm).
+  In the context of images, it can be used to cluster similar pixels
+  together by using a technique called kernel density estimate (KDE).
+  It is model-free and does not assume any prior shapes
+  (spherical, elliptical, etc.) on data clusters.
+</p>
+
+<br/>
+<div class="container">
+<div class="row">
+  <div class="col-md">
+    <h6>Weeknd Original</h6>
+    <img src="./images/in6.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" class='img-fluid' alt="Skyline">
+  </div>
+  <div class="col-md">
+    <h6>Weeknd Mean-Shift</h6>
+    <img src="./images/weeknd_ms.jpg" onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;" class='img-fluid' alt="Skyline-KMeans">
+  </div>
+</div>
+<br/>
+
+
+<br/>
+<h5>Intuition and Implementation</h5>
+<p>
+  The intuition behind mean-shift is a so-called gradient ascent approach,
+  as illustrated by the simple 1D-KDE graph below:
+</p>
+<div class="container">
+<div class="row">
+<div class="col-md">
+<img src="./images/KDE.png" height='300'>
+</div></div></div>
+<p>
+  In this graph, we construct a function (in this case
+  Gaussian) around each data points, then sum all of them to obtain a so called kernel density
+  estimation. We then move each of these points upwards to their local maxima.
+  This concludes one iteration, and we repeat until all points remain unmoved
+  , or as we like to say, converges.
+</p>
+<p>
+  Now translating this to a general algorithm, let a kernel function K be given,
+  this will determine the weights of nearby points for re-estimating the mean,
+  as given by the following formula, where N(x) means neighboring points of x,
+  and (x_i - x) is determined by the chosen distance function:
+</p>
+<div class="container">
+<div class="row">
+<div class="col-md">
+<img src="./images/formula.png" height='100'>
+</div></div></div>
+<p>
+  In the original paper by Fukunaga and Hostetler, m(x) is called a mean-shift
+  vector. Now the new x will be m(x), and we do this for all points, and repeat
+  until it converges. Notice this looks just like a weighted average! So think
+  of mean-shift algorithm as a way to shift the points towards the means.
+  <br/>
+  Also, unlike k-means where you will have to choose the number of clusters,
+  mean-shift does that automatically. The only input it really needs is h,
+  called bandwidth, which determines how large the search window would be.
+  When you choose a Gaussian kernel as K, the sigma (variance) would be the
+  bandwidth parameter. It is worth noting that the selection of bandwidth
+  is non-trivial, as it determines the quality of result.
+</p>
+
+<p>
+  To demonstrate how mean-shift looks in action, kindly examine the process via
+  pixelated images below. Here you can see pixels whose color are similar
+  gradually becomes even more similar, and eventually looks like one and the
+  same. For example, pay attention to how red and yellow colors all became brown
+  at last.
+</p>
+<br/>
+<div class="container">
+<div class="row">
+  <div class="col-md">
+    <h6>Original</h6>
+    <img src="./images/ms_0.png" class='img-fluid' onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;">
+  </div>
+  <div class="col-md">
+    <h6>Shifted Once</h6>
+    <img src="./images/ms_2.png" class='img-fluid' onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;">
+  </div>
+  <div class="col-md">
+    <h6>Shifted Twice</h6>
+    <img src="./images/ms_4.png" class='img-fluid' onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;">
+  </div>
+  <div class="col-md">
+    <h6>Converged</h6>
+    <img src="./images/ms_10.png" class='img-fluid' onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;">
+  </div>
+</div>
+<br/>
+
+<p>
+  In my implementation, I chose a Gaussian kernel, and used Euclidean distance
+  for the distance function.
+  For feature space, I tried using Lab color space, HSV and RGB, but finally
+  settled for RGB because it seems to do a pretty good job on most images.
+  While the vanilla implementation is simple, it is actually non-scalable,
+  because you have to calculate weights for each points, which will blow up
+  exponentially. There are different ways to speedup the computation, including
+  using a flat kernel (instead of Gaussian) and Ball Tree to look up
+  members of each kernel as implemented in sklearn, which still have a complexity
+  of O(n^2).
+</p>
+
+<br/>
+<h5>Applications of Mean-Shift</h5>
+
+<br/>
+<div class="container">
+<div class="row">
+  <div class="col-md">
+    <img src="./images/in1.jpg" height='500' onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;">
+  </div>
+  <div class="col-md">
+    <img src="./images/beach_ms.jpg" height='500' onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;">
+  </div>
+  <div class="col-md">
+    <p></p>
+  </div>
+</div>
+<br/>
+
+<p>
+  Mean-shift algorithm is a popular segmentation approach in vision because
+  it is general and simple to understand/implement. Some applications include
+  clustering and tracking. Here we present mean-shift clustering as a way to
+  automatically segment out different regions as a preprocessing step.
+  We demonstrate this process using the skyline photo (the one above). In the
+  image to the left below, you can see a label map indicating which pixels belong to which
+  groups. Specifically, in the right image, the pixels of the sky are marked as
+  bright yellow.
+</p>
+
+<br/>
+<div class="container">
+<div class="row">
+  <div class="col-md">
+    <h6>Label Map</h6>
+    <img src="./images/skyline_plot.jpg" class='img-fluid' onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;">
+  </div>
+  <div class="col-md">
+    <h6>Segmented Sky</h6>
+    <img src="./images/skyline_plot_mono.jpg" class='img-fluid' onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;">
+  </div>
+</div>
+<br/>
+
+<p>
+  We then can do lots of stuff with the segmented image like throwing the
+  rest of the image into a CNN to classify
+  stuff (so we can reduce computation complexity), or we can also use it as a
+  green screen and add some background to it, as shown below.
+</p>
+
+<div class="container">
+<div class="row">
+  <div class="col-md">
+    <img src="./images/skyline_star.jpg" class='img-fluid' onclick="window.open(this.src)" onmouseover="" style="cursor: pointer;">
+  </div>
+</div>
+<br/>
+
+<br/>
+<h5>Conclusions on Mean-Shift</h5>
+<p>
+  In a nutshell, mean-shift is an excellent general purpose clustering algorithm
+  that can be used on almost any dataset due to the fact that it does not assume
+  anything about the cluster shape, nor does it assume how many modes there will
+  be like k-means. Instead, using KDE and gradient ascent as its intuition,
+  mean-shift can achieve a much better result then k-means in terms of semantics
+  segmentation, with the cost of O(n^2) computation complexity. It should also
+  be noted that the window size (aka bandwidth) is non-trivial to choose, and
+  can make or break a mean-shifted image. In practice, adaptive bandwidth
+  choosing is preferred.
+</p>
 <br/>
 <br/>
-
-
-
 
 <h3>References</h3>
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Image_segmentation">Image Segmentation - Wikipedia</a> </li>
+  <li><a href="https://www.saedsayad.com/clustering_kmeans.htm">K-means Clustering</a></li>
+  <li><a href="https://www.artsy.net/collection/andy-warhol-celebrity-portraits">Andy Warhol: Celebrity Portraits</a></li>
+  <li><a href="http://pages.cs.wisc.edu/~dyer/ai-qual/comaniciu-iccv99.pdf">Mean Shift Analysis and Applications</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Mean_shift">Mean Shift - Wikipedia</a></li>
+  <li><a href="https://www.geeksforgeeks.org/ml-mean-shift-clustering/">ML | Mean-Shift Clustering</a></li>
+  <li><a href="https://spin.atomicobject.com/2015/05/26/mean-shift-clustering/">Mean Shift Clustering Overview - Atomic Spin - Atomic Object</a></li>
+</ul>
+
 
 </article>
 </html>
